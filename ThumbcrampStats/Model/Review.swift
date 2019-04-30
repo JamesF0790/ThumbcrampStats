@@ -11,6 +11,8 @@ import Foundation
 struct Review {
     let name: String
     let episode: Int
+    let number: Int
+    let reviewerNumber: Int
     let genre: Genres
     let system: Systems
     let reviewer: Reviewers

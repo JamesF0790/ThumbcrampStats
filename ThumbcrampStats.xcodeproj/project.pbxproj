@@ -47,6 +47,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B22506C22781FDD00010271 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2B22E3E422778B4C00EE654E /* Systems.swift */,
+				2B22E3E622778B9800EE654E /* System.swift */,
+				2B22E3E822778C5500EE654E /* Reviewer.swift */,
+				2B22E3EE2277915D00EE654E /* Episode.swift */,
+				2B22E3EA22778D6400EE654E /* Genres.swift */,
+				2B22E3EC22778E0000EE654E /* Review.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2B22E3C622778B1500EE654E = {
 			isa = PBXGroup;
 			children = (
@@ -66,18 +79,13 @@
 		2B22E3D122778B1500EE654E /* ThumbcrampStats */ = {
 			isa = PBXGroup;
 			children = (
+				2B22506C22781FDD00010271 /* Model */,
 				2B22E3D222778B1500EE654E /* AppDelegate.swift */,
 				2B22E3D422778B1500EE654E /* ViewController.swift */,
 				2B22E3D622778B1500EE654E /* Main.storyboard */,
 				2B22E3D922778B1600EE654E /* Assets.xcassets */,
 				2B22E3DB22778B1600EE654E /* LaunchScreen.storyboard */,
 				2B22E3DE22778B1600EE654E /* Info.plist */,
-				2B22E3E422778B4C00EE654E /* Systems.swift */,
-				2B22E3E622778B9800EE654E /* System.swift */,
-				2B22E3E822778C5500EE654E /* Reviewer.swift */,
-				2B22E3EE2277915D00EE654E /* Episode.swift */,
-				2B22E3EA22778D6400EE654E /* Genres.swift */,
-				2B22E3EC22778E0000EE654E /* Review.swift */,
 			);
 			path = ThumbcrampStats;
 			sourceTree = "<group>";
