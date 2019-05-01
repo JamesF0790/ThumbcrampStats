@@ -9,15 +9,21 @@
 import Foundation
 
 struct Episode: Codable {
-    let number: Int
+    let number: Int // This can be gotten by the count or adding 1 to the index
     let reviews: [Review]
     let scoreModifier: Float?
-    var score: Float {
+    var baseScore: Float {
         get {
             var score: Float = 0
             for x in reviews {
                 score += x.score
             }
+            return score
+        }
+    }
+    var score: Float {
+        get {
+            let score = baseScore
             guard let mod = scoreModifier else { return score }
             return score + mod
         }

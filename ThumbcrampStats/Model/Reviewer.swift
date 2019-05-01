@@ -55,3 +55,14 @@ struct Reviewer: Codable {
         }
     }//Gets the total review score and divides it by the amount of reviews
 }
+
+extension Reviewer {
+    mutating func GetReviews(reviews: [Review]) {
+        for x in reviews {
+            if x.reviewer == self.name {
+                self.reviews.append(x)
+            }
+        }
+    }
+}
+
