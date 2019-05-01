@@ -81,7 +81,6 @@
 			children = (
 				2BFD61D6227824B800728EC7 /* Helper */,
 				2B22506C22781FDD00010271 /* Model */,
-				2BFD61D5227821AE00728EC7 /* Controller */,
 				2B22E3D222778B1500EE654E /* AppDelegate.swift */,
 				2B22E3D622778B1500EE654E /* Main.storyboard */,
 				2B22E3D922778B1600EE654E /* Assets.xcassets */,
@@ -89,13 +88,6 @@
 				2B22E3DE22778B1600EE654E /* Info.plist */,
 			);
 			path = ThumbcrampStats;
-			sourceTree = "<group>";
-		};
-		2BFD61D5227821AE00728EC7 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		2BFD61D6227824B800728EC7 /* Helper */ = {
