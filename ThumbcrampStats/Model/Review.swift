@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct Review {
+
+struct Review: Codable {
     let name: String
     let episode: Int
     let number: Int
@@ -19,4 +20,18 @@ struct Review {
     let score: Float
     let horny: Bool
     let indie: Bool
+}
+
+
+extension Review {
+    
+    static func GetReviews(episodes: [Episode]) -> [Review] {
+        var reviews: [Review] = []
+        for x in episodes {
+            for y in x.reviews {
+                reviews.append(y)
+            }
+        }
+        return reviews
+    }
 }

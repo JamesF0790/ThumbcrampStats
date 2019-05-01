@@ -8,12 +8,12 @@
 
 import Foundation
 
-enum Reviewers {
+enum Reviewers: String, Codable {
     case Jackson
     case Joel
     case JD
 }
-struct Reviewer {
+struct Reviewer: Codable {
     let name: Reviewers
     var reviews: [Review]
     var systems: [System]
@@ -21,7 +21,7 @@ struct Reviewer {
         get {
             return reviews.count
         }
-    }
+    } //Gets the count from the reviews.count
     var horny: Int {
         get {
             var temp: Int = 0
@@ -32,7 +32,7 @@ struct Reviewer {
             }
             return temp
         }
-    }
+    } //Gets his and the Indie from checking all reviews and incrementing for each with the bool true
     var indie: Int {
         get {
             var temp: Int = 0
@@ -53,5 +53,5 @@ struct Reviewer {
             f /= Float(count)
             return f
         }
-    }
+    }//Gets the total review score and divides it by the amount of reviews
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct System {
+struct System: Codable {
     let name: Systems
     var count: Int
 }

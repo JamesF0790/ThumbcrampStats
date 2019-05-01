@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Systems {
+enum Systems: String, Codable {
     case pc
     case ps1
     case ps2

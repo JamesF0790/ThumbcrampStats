@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Episode {
+struct Episode: Codable {
     let number: Int
     let reviews: [Review]
     let scoreModifier: Float?

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Genres {
+enum Genres: String, Codable {
     case ActionAdventure
     case ActionRPG
     case Platformer2D
