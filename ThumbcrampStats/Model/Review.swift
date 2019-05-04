@@ -20,6 +20,7 @@ struct Review: Codable {
     let score: Float
     let horny: Bool
     let indie: Bool
+    let magic: Bool
 }
 
 

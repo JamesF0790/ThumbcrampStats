@@ -21,6 +21,7 @@ enum Systems: String, Codable {
     case wiiu
     case nx
     case xbox
+    case x360
     case xbone
     case other
 }

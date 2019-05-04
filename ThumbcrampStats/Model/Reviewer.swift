@@ -32,7 +32,7 @@ struct Reviewer: Codable {
             }
             return temp
         }
-    } //Gets his and the Indie from checking all reviews and incrementing for each with the bool true
+    } //Checks a bool and how many times it appears
     var indie: Int {
         get {
             var temp: Int = 0
@@ -43,6 +43,15 @@ struct Reviewer: Codable {
             }
             return temp
         }
+    }
+    var magic: Int {
+        var i: Int = 0
+        for x in reviews {
+            if x.magic {
+                i += 1
+            }
+        }
+        return i
     }
     var average: Float {
         get {
