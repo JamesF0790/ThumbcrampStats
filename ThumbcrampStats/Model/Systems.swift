@@ -23,5 +23,6 @@ enum Systems: String, Codable {
     case xbox
     case x360
     case xbone
+    case life
     case other
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0917F4227EF67900CDC4F6 /* EpisodeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0917F3227EF67900CDC4F6 /* EpisodeTableViewController.swift */; };
 		2B22E3D322778B1500EE654E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22E3D222778B1500EE654E /* AppDelegate.swift */; };
 		2B22E3D822778B1500EE654E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B22E3D622778B1500EE654E /* Main.storyboard */; };
 		2B22E3DA22778B1600EE654E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B22E3D922778B1600EE654E /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B0917F3227EF67900CDC4F6 /* EpisodeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewController.swift; sourceTree = "<group>"; };
 		2B22E3CF22778B1500EE654E /* ThumbcrampStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThumbcrampStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B22E3D222778B1500EE654E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B22E3D722778B1500EE654E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -47,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B0917F2227EF65A00CDC4F6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2B0917F3227EF67900CDC4F6 /* EpisodeTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		2B22506C22781FDD00010271 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +89,7 @@
 		2B22E3D122778B1500EE654E /* ThumbcrampStats */ = {
 			isa = PBXGroup;
 			children = (
+				2B0917F2227EF65A00CDC4F6 /* Controller */,
 				2BFD61D6227824B800728EC7 /* Helper */,
 				2B22506C22781FDD00010271 /* Model */,
 				2B22E3D222778B1500EE654E /* AppDelegate.swift */,
@@ -171,6 +182,7 @@
 			files = (
 				2B22E3E722778B9800EE654E /* System.swift in Sources */,
 				2B22E3EF2277915D00EE654E /* Episode.swift in Sources */,
+				2B0917F4227EF67900CDC4F6 /* EpisodeTableViewController.swift in Sources */,
 				2B22E3E922778C5500EE654E /* Reviewer.swift in Sources */,
 				2B22E3EB22778D6500EE654E /* Genres.swift in Sources */,
 				2B22E3ED22778E0000EE654E /* Review.swift in Sources */,

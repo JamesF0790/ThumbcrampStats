@@ -12,11 +12,31 @@ enum Reviewers: String, Codable {
     case Jackson
     case Joel
     case JD
+    case Adam
+    case Cass
 }
 struct Reviewer: Codable {
     let name: Reviewers
     var reviews: [Review]
-    var systems: [System]
+    var systems: [Systems:Int] {
+        var temp: [Systems:Int] = [:]
+        var tempSystems: [Systems] = []
+        for x in reviews {
+            if !tempSystems.contains(x.system) {
+                tempSystems.append(x.system)
+            }
+        }
+        for system in tempSystems {
+            var count = Int()
+            for x in reviews {
+                if x.system == system {
+                    count += 1
+                }
+            }
+            temp[system] = count
+        }
+        return temp
+    } // Gets the systems by looping through the reviews
     var count: Int {
         get {
             return reviews.count
@@ -64,14 +84,3 @@ struct Reviewer: Codable {
         }
     }//Gets the total review score and divides it by the amount of reviews
 }
-
-extension Reviewer {
-    mutating func GetReviews(reviews: [Review]) {
-        for x in reviews {
-            if x.reviewer == self.name {
-                self.reviews.append(x)
-            }
-        }
-    }
-}
-
