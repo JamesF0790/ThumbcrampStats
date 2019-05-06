@@ -10,6 +10,7 @@ import Foundation
 
 struct Episode: Codable {
     let number: Int // This can be gotten by the count or adding 1 to the index
+    let date: Date
     let reviews: [Review]
     let scoreModifier: Float?
     var baseScore: Float {

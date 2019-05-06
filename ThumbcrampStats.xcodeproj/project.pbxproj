@@ -18,6 +18,8 @@
 		2B22E3EB22778D6500EE654E /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22E3EA22778D6400EE654E /* Genres.swift */; };
 		2B22E3ED22778E0000EE654E /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22E3EC22778E0000EE654E /* Review.swift */; };
 		2B22E3EF2277915D00EE654E /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22E3EE2277915D00EE654E /* Episode.swift */; };
+		2BBB357E227FC072003EB559 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBB357D227FC072003EB559 /* Formatters.swift */; };
+		2BBB3580227FC548003EB559 /* EpisodeDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBB357F227FC548003EB559 /* EpisodeDetailTableViewController.swift */; };
 		2BFD61D8227824C800728EC7 /* HelperProcs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFD61D7227824C800728EC7 /* HelperProcs.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,8 @@
 		2B22E3EA22778D6400EE654E /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
 		2B22E3EC22778E0000EE654E /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		2B22E3EE2277915D00EE654E /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		2BBB357D227FC072003EB559 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
+		2BBB357F227FC548003EB559 /* EpisodeDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailTableViewController.swift; sourceTree = "<group>"; };
 		2BFD61D7227824C800728EC7 /* HelperProcs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperProcs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				2B0917F3227EF67900CDC4F6 /* EpisodeTableViewController.swift */,
+				2BBB357F227FC548003EB559 /* EpisodeDetailTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -105,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				2BFD61D7227824C800728EC7 /* HelperProcs.swift */,
+				2BBB357D227FC072003EB559 /* Formatters.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -182,12 +188,14 @@
 			files = (
 				2B22E3E722778B9800EE654E /* System.swift in Sources */,
 				2B22E3EF2277915D00EE654E /* Episode.swift in Sources */,
+				2BBB3580227FC548003EB559 /* EpisodeDetailTableViewController.swift in Sources */,
 				2B0917F4227EF67900CDC4F6 /* EpisodeTableViewController.swift in Sources */,
 				2B22E3E922778C5500EE654E /* Reviewer.swift in Sources */,
 				2B22E3EB22778D6500EE654E /* Genres.swift in Sources */,
 				2B22E3ED22778E0000EE654E /* Review.swift in Sources */,
 				2BFD61D8227824C800728EC7 /* HelperProcs.swift in Sources */,
 				2B22E3E522778B4C00EE654E /* Systems.swift in Sources */,
+				2BBB357E227FC072003EB559 /* Formatters.swift in Sources */,
 				2B22E3D322778B1500EE654E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

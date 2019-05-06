@@ -18,12 +18,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="hzt-77-NNX">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="episodeCell" textLabel="hyQ-Qp-xEa" detailTextLabel="41B-94-yoP" style="IBUITableViewCellStyleValue1" id="hzt-77-NNX">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hzt-77-NNX" id="Xti-yv-oIA">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hyQ-Qp-xEa">
+                                            <rect key="frame" x="20.000000000000004" y="11.999999999999998" width="33.333333333333336" height="20.333333333333332"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="41B-94-yoP">
+                                            <rect key="frame" x="350" y="11.999999999999998" width="44" height="20.333333333333332"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="JI6-6n-jNa" kind="show" identifier="showDetails" id="EDT-OH-sQf"/>
@@ -51,7 +67,7 @@
         <!--Add/Edit Episode-->
         <scene sceneID="nqV-sd-06I">
             <objects>
-                <tableViewController title="Add/Edit Episode" id="JI6-6n-jNa" sceneMemberID="viewController">
+                <tableViewController title="Add/Edit Episode" id="JI6-6n-jNa" customClass="EpisodeDetailTableViewController" customModule="ThumbcrampStats" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ims-cD-Hhb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -242,11 +258,17 @@
                             <outlet property="delegate" destination="JI6-6n-jNa" id="TP8-PM-gCo"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="yeK-0y-ghv"/>
+                    <navigationItem key="navigationItem" title="Episode" id="yeK-0y-ghv"/>
+                    <connections>
+                        <outlet property="episodeBaseScoreField" destination="bLd-4C-bmc" id="nzP-WZ-VIe"/>
+                        <outlet property="episodeFinalScoreLabel" destination="Ctg-qB-BUl" id="e0p-Pk-63y"/>
+                        <outlet property="episodeNumberField" destination="C60-eu-QqX" id="jdk-0x-oGy"/>
+                        <outlet property="episodeScoreModifierField" destination="fuc-lj-rC7" id="dAn-0Z-so4"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZSk-DE-DoK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="77" y="179"/>
+            <point key="canvasLocation" x="-43" y="179"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="diZ-KL-ZK3">
@@ -278,7 +300,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vya-H1-tnL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1599" y="261"/>
+            <point key="canvasLocation" x="901" y="179"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Q5B-2a-1bK">
@@ -294,7 +316,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PPn-1E-7lv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="912" y="-117"/>
+            <point key="canvasLocation" x="901" y="-518"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zPh-0T-uVS">
@@ -310,7 +332,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2b7-7X-RVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="77" y="856"/>
+            <point key="canvasLocation" x="-583" y="900"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sTe-ZG-VJ9">
