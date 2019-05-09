@@ -1,11 +1,3 @@
-//
-//  Episode.swift
-//  ThumbcrampStats
-//
-//  Created by James Frost on 30/4/19.
-//  Copyright © 2019 James Frost. All rights reserved.
-//
-
 import Foundation
 
 struct Episode: Codable {
@@ -35,11 +27,27 @@ struct Episode: Codable {
 // MARK: - Codable Extension
 extension Episode {
     
-    static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-
-    static func saveEpisodes(_ episodes: [Episode]) {
-        
+    static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let archive = documentsDirectory.appendingPathComponent("episodes").appendingPathComponent("plist")
+    
+    static func save(_ episodes: [Episode]) {
+        let encoder = PropertyListEncoder()
+        let codedEpisodes = try? encoder.encode(episodes)
+        try? codedEpisodes?.write(to: archive, options: .noFileProtection)
     }
+    
+    static func load() -> [Episode]? {
+        guard let codedEpisodes = try? Data(contentsOf: archive) else {return nil}
+        let decoder = PropertyListDecoder()
+        return try? decoder.decode(Array<Episode>.self, from: codedEpisodes)
+    }
+    
+}
 
+// MARK: - Helper Procs
+extension Episode {
+    static func Sort(_ episodes: [Episode]) -> [Episode] {
+        return episodes.sorted(by: {$0.number < $1.number})
+    }
 }
 

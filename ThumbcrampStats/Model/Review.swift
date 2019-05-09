@@ -1,13 +1,4 @@
-//
-//  Review.swift
-//  ThumbcrampStats
-//
-//  Created by James Frost on 30/4/19.
-//  Copyright © 2019 James Frost. All rights reserved.
-//
-
 import Foundation
-
 
 struct Review: Codable {
     let name: String
@@ -21,18 +12,4 @@ struct Review: Codable {
     let horny: Bool
     let indie: Bool
     let magic: Bool
-}
-
-
-extension Review {
-    
-    static func GetReviews(episodes: [Episode]) -> [Review] {
-        var reviews: [Review] = []
-        for x in episodes {
-            for y in x.reviews {
-                reviews.append(y)
-            }
-        }
-        return reviews
-    }
 }

@@ -22,6 +22,7 @@ class EpisodeTableViewController: UITableViewController {
         super.viewDidLoad()
         
         episodes = LoadEpisodeSample()
+        episodes = Episode.Sort(episodes)
         tableView.reloadData()
         reviews = CollectReviews(episodes)
         reviewers = CreateReviewers(reviews)
@@ -38,17 +39,21 @@ class EpisodeTableViewController: UITableViewController {
             guard let episode = sourceVC.episode else {return}
             if let selecedIndexPath = tableView.indexPathForSelectedRow {
                 episodes[selecedIndexPath.row] = episode
+                episodes = Episode.Sort(episodes)
+                tableView.reloadRows(at: [selecedIndexPath], with: .automatic)
             } else {
                 let index = IndexPath(row: episodes.count, section: 0)
                 episodes.append(episode)
+                episodes = Episode.Sort(episodes)
                 tableView.insertRows(at: [index], with: .automatic)
             }
         } else if segue.identifier == "deleteUnwind" {
             guard let selectedIndexPath = tableView.indexPathForSelectedRow else {return}
             episodes.remove(at: selectedIndexPath.row)
+            episodes = Episode.Sort(episodes)
             tableView.deleteRows(at: [selectedIndexPath], with: .automatic)
         }
-        tableView.reloadData()
+        //tableView.reloadData()
 
     }
     // MARK: - Table view data source

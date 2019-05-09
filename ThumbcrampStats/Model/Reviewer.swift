@@ -1,11 +1,3 @@
-//
-//  Reviewer.swift
-//  ThumbcrampStats
-//
-//  Created by James Frost on 30/4/19.
-//  Copyright © 2019 James Frost. All rights reserved.
-//
-
 import Foundation
 
 enum Reviewers: String, Codable {
@@ -83,4 +75,10 @@ struct Reviewer: Codable {
             return f
         }
     }//Gets the total review score and divides it by the amount of reviews
+}
+
+extension Reviewer {
+    mutating func Sort() {
+        reviews = reviews.sorted(by: {$0.reviewerNumber < $1.reviewerNumber})
+    }
 }
