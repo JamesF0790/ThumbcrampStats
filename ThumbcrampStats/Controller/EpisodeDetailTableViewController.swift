@@ -10,10 +10,14 @@ import UIKit
 
 class EpisodeDetailTableViewController: UITableViewController {
 
+    //let formatters = Formatters()
+    
     @IBOutlet weak var episodeNumberField: UITextField!
     @IBOutlet weak var episodeBaseScoreField: UILabel!
     @IBOutlet weak var episodeScoreModifierField: UITextField!
     @IBOutlet weak var episodeFinalScoreLabel: UILabel!
+    @IBOutlet weak var episodeDateLabel: UILabel!
+    @IBOutlet weak var episodeDatePicker: UIDatePicker!
     
     var episode: Episode?
     
@@ -23,6 +27,11 @@ class EpisodeDetailTableViewController: UITableViewController {
             loadEpisode()
         }
     }
+
+    @IBAction func episodeDatePickerChanged(_ sender: Any) {
+        episodeDateLabel.text = Formatters.dateFormatter.string(from: episodeDatePicker.date)
+    }
+    
 
     // MARK: - Navigation
 

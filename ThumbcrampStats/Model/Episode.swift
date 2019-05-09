@@ -31,3 +31,15 @@ struct Episode: Codable {
     }
     
 }
+
+// MARK: - Codable Extension
+extension Episode {
+    
+    static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+
+    static func saveEpisodes(_ episodes: [Episode]) {
+        
+    }
+
+}
+

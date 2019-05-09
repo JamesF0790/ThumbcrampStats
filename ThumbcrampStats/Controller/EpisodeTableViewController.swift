@@ -30,6 +30,27 @@ class EpisodeTableViewController: UITableViewController {
 
     }
 
+    
+    // MARK: - Unwind
+    @IBAction func unwindToEpisodeList(segue: UIStoryboardSegue) {
+        let sourceVC = segue.source as! EpisodeDetailTableViewController
+        if segue.identifier == "saveUnwind" {
+            guard let episode = sourceVC.episode else {return}
+            if let selecedIndexPath = tableView.indexPathForSelectedRow {
+                episodes[selecedIndexPath.row] = episode
+            } else {
+                let index = IndexPath(row: episodes.count, section: 0)
+                episodes.append(episode)
+                tableView.insertRows(at: [index], with: .automatic)
+            }
+        } else if segue.identifier == "deleteUnwind" {
+            guard let selectedIndexPath = tableView.indexPathForSelectedRow else {return}
+            episodes.remove(at: selectedIndexPath.row)
+            tableView.deleteRows(at: [selectedIndexPath], with: .automatic)
+        }
+        tableView.reloadData()
+
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
