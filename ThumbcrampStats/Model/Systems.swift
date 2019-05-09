@@ -1,6 +1,6 @@
 import Foundation
 
-enum Systems: String, Codable {
+enum Systems: String, Codable, CaseIterable {
     case pc
     case ps1
     case ps2

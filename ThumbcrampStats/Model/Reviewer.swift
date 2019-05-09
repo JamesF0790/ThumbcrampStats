@@ -1,6 +1,6 @@
 import Foundation
 
-enum Reviewers: String, Codable {
+enum Reviewers: String, Codable, CaseIterable {
     case Jackson
     case Joel
     case JD

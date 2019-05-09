@@ -12,4 +12,5 @@ struct Review: Codable {
     let horny: Bool
     let indie: Bool
     let magic: Bool
+    let hungry: Bool
 }
