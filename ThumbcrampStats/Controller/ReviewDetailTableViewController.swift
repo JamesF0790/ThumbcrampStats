@@ -8,38 +8,7 @@
 
 import UIKit
 
-class ReviewDetailTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        switch pickerView {
-        case reviewerPicker:
-            return Reviewers.AllCases().count
-        case systemPicker:
-            return Systems.AllCases().count
-        case genrePicker:
-            return Genres.AllCases().count
-        default:
-            return 4
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        switch pickerView {
-        case reviewerPicker:
-            return Reviewers.AllCases()[row].rawValue
-        case systemPicker:
-            return Systems.AllCases()[row].rawValue
-        case genrePicker:
-            return Genres.AllCases()[row].rawValue
-        default:
-            let string = ["This", "Is", "An", "Error"]
-            return string[row]
-        }
-    }
-    
+class ReviewDetailTableViewController: UITableViewController, UIPickerViewDelegate {
 
     var review: Review?
     
@@ -68,6 +37,10 @@ class ReviewDetailTableViewController: UITableViewController, UIPickerViewDataSo
     @IBOutlet weak var hungrySwitch: UILabel!
     @IBOutlet weak var magicSwitch: UILabel!
     
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -79,7 +52,16 @@ class ReviewDetailTableViewController: UITableViewController, UIPickerViewDataSo
         
         genrePicker.delegate = self
         genrePicker.dataSource = self
+        
+        reviewerLabel.textColor = tableView.tintColor
+        systemLabel.textColor = tableView.tintColor
+        genreLabel.textColor = tableView.tintColor
     }
+    
+    
+    // MARK: - Actions
+    
+    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -87,17 +69,17 @@ class ReviewDetailTableViewController: UITableViewController, UIPickerViewDataSo
         case [0,3]:
             isReviewerPickerShown = !isReviewerPickerShown
             
-            reviewerLabel.textColor = isReviewerPickerShown ? tableView.tintColor : .black
+            reviewerLabel.textColor = !isReviewerPickerShown ? tableView.tintColor : .black
             
         case [0,6]:
             isSystenPickerShown = !isSystenPickerShown
             
-            systemLabel.textColor = isSystenPickerShown ? tableView.tintColor : .black
+            systemLabel.textColor = !isSystenPickerShown ? tableView.tintColor : .black
             
         case [0,8]:
             isGenrePickerShown = !isGenrePickerShown
             
-            genreLabel.textColor = isGenrePickerShown ? tableView.tintColor : .black
+            genreLabel.textColor = !isGenrePickerShown ? tableView.tintColor : .black
             
         default:
             break
@@ -136,3 +118,50 @@ class ReviewDetailTableViewController: UITableViewController, UIPickerViewDataSo
 
 }
 
+extension ReviewDetailTableViewController: UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        switch pickerView {
+        case reviewerPicker:
+            return Reviewers.allCases.count
+        case systemPicker:
+            return Systems.allCases.count
+        case genrePicker:
+            return Genres.allCases.count
+        default:
+            return 4
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch pickerView {
+        case reviewerPicker:
+            return Reviewers.allCases[row].rawValue
+        case systemPicker:
+            return Systems.allCases[row].rawValue
+        case genrePicker:
+            return Genres.allCases[row].rawValue
+        default:
+            let string = ["This", "Is", "An", "Error"]
+            return string[row]
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch pickerView {
+        case reviewerPicker:
+            reviewerLabel.text = Reviewers.allCases[row].rawValue
+        case systemPicker:
+            systemLabel.text = Systems.allCases[row].rawValue
+        case genrePicker:
+            genreLabel.text = Genres.allCases[row].rawValue
+        default:
+            break
+        }
+    }
+    
+}
