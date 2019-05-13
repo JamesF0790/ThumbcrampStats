@@ -370,7 +370,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="ktO-ta-5gF" kind="show" id="T4t-er-W5N"/>
+                                    <segue destination="ktO-ta-5gF" kind="show" identifier="showReview" id="T4t-er-W5N"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -383,7 +383,7 @@
                         <barButtonItem key="leftBarButtonItem" title="&lt; Episode" id="itw-RH-6Oi"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zrr-IT-QRE">
                             <connections>
-                                <segue destination="kNc-7x-W8M" kind="presentation" id="XW0-zs-7K9"/>
+                                <segue destination="kNc-7x-W8M" kind="presentation" identifier="addReview" id="XW0-zs-7K9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -750,6 +750,9 @@
                                                     <rect key="frame" x="185" y="6" width="45" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Delete"/>
+                                                    <connections>
+                                                        <segue destination="Vo7-C5-oRw" kind="unwind" identifier="deleteUnwind" unwindAction="unwindToReviewListWithSegue:" id="chG-Qi-JHQ"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -765,6 +768,9 @@
                                                     <rect key="frame" x="189" y="6" width="37" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Done"/>
+                                                    <connections>
+                                                        <segue destination="Vo7-C5-oRw" kind="unwind" identifier="saveUnwind" unwindAction="unwindToReviewListWithSegue:" id="5wq-du-ZeY"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -778,7 +784,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="64q-m2-Tvq">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3A7-2B-4sO"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3A7-2B-4sO">
+                            <connections>
+                                <segue destination="Vo7-C5-oRw" kind="unwind" identifier="cancelUnwind" unwindAction="unwindToReviewListWithSegue:" id="aNk-hp-LDt"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="deleteButton" destination="ayV-aK-ij0" id="Exc-tE-Zw8"/>
@@ -801,6 +811,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhH-BG-AMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Vo7-C5-oRw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1225" y="179"/>
         </scene>

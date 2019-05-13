@@ -1,11 +1,3 @@
-//
-//  EpisodeTableViewController.swift
-//  ThumbcrampStats
-//
-//  Created by James Frost on 5/5/19.
-//  Copyright © 2019 James Frost. All rights reserved.
-//
-
 import UIKit
 
 class EpisodeTableViewController: UITableViewController {

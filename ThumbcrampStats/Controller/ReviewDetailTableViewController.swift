@@ -1,15 +1,8 @@
-//
-//  ReviewDetailTableViewController.swift
-//  ThumbcrampStats
-//
-//  Created by James Frost on 10/5/19.
-//  Copyright © 2019 James Frost. All rights reserved.
-//
-
 import UIKit
 
 class ReviewDetailTableViewController: UITableViewController, UIPickerViewDelegate {
 
+    var episodeNumber = Int()
     var review: Review?
     
     var isReviewerPickerShown = false

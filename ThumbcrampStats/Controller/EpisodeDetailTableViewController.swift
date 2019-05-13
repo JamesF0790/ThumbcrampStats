@@ -1,11 +1,3 @@
-//
-//  EpisodeDetailTableViewController.swift
-//  ThumbcrampStats
-//
-//  Created by James Frost on 6/5/19.
-//  Copyright © 2019 James Frost. All rights reserved.
-//
-
 import UIKit
 
 class EpisodeDetailTableViewController: UITableViewController {
@@ -39,6 +31,15 @@ class EpisodeDetailTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "Reviews" {
+            let vc = segue.destination as! ReviewTableViewController
+            if episode == nil {
+                FormToEpisode()
+            }
+            vc.reviews = episode!.reviews
+            vc.episodeNumber = episode!.number
+            
+        }
     }
     
 
@@ -53,5 +54,8 @@ extension EpisodeDetailTableViewController {
             episodeScoreModifierField.text = String(episode!.scoreModifier!)
         }
         episodeFinalScoreLabel.text = "\(episode!.score)/\(episode!.reviews.count * 5)"
+    }
+    func FormToEpisode() {
+        
     }
 }
