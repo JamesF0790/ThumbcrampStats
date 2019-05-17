@@ -40,6 +40,7 @@ class EpisodeDetailTableViewController: UITableViewController {
             vc.episodeNumber = episode!.number
             
         }
+        
     }
     
 
@@ -56,6 +57,22 @@ extension EpisodeDetailTableViewController {
         episodeFinalScoreLabel.text = "\(episode!.score)/\(episode!.reviews.count * 5)"
     }
     func FormToEpisode() {
+        var number = Int()
+        if episode?.number != nil{
+            number = episode!.number
+        } else if episodeNumberField.text != nil {
+            number = Int(episodeNumberField.text!) ?? 0
+        }
+        let date = episodeDatePicker.date
+        let reviews = episode?.reviews ?? [Review]()
+        var mod: Float?
+        if episode?.scoreModifier != nil {
+            mod = episode!.scoreModifier!
+        } else if episodeScoreModifierField.text != nil {
+            mod = Float(episodeScoreModifierField.text!) ?? nil
+        }
+        
+        episode = Episode(number: number, date: date, reviews: reviews, scoreModifier: mod)
         
     }
 }

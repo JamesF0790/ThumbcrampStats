@@ -46,6 +46,7 @@ class EpisodeTableViewController: UITableViewController {
             tableView.deleteRows(at: [selectedIndexPath], with: .automatic)
         }
         //tableView.reloadData()
+        Episode.Save(episodes)
 
     }
     // MARK: - Table view data source
@@ -120,7 +121,7 @@ extension EpisodeTableViewController {
     
     func LoadEpisodeSample() -> [Episode] {
         var temp: [Episode] = []
-        let review = Review(name: "Test", episode: 1, number: 1, reviewerNumber: 1, genre: .ActionRPG, system: .gcn, reviewer: .Adam, score: 10, horny: false, indie: true, magic: false, hungry: false)
+        let review = Review(name: "Test", episode: 1, reviewerNumber: 1, genre: .ActionRPG, system: .gcn, reviewer: .Adam, score: 10, horny: false, indie: true, magic: false, hungry: false)
         let episode = Episode(number: 1, date: Date(), reviews: [review], scoreModifier: nil)
         temp.append(episode)
         return temp

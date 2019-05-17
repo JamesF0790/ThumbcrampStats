@@ -30,13 +30,13 @@ extension Episode {
     static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     static let archive = documentsDirectory.appendingPathComponent("episodes").appendingPathComponent("plist")
     
-    static func save(_ episodes: [Episode]) {
+    static func Save(_ episodes: [Episode]) {
         let encoder = PropertyListEncoder()
         let codedEpisodes = try? encoder.encode(episodes)
         try? codedEpisodes?.write(to: archive, options: .noFileProtection)
     }
     
-    static func load() -> [Episode]? {
+    static func Load() -> [Episode]? {
         guard let codedEpisodes = try? Data(contentsOf: archive) else {return nil}
         let decoder = PropertyListDecoder()
         return try? decoder.decode(Array<Episode>.self, from: codedEpisodes)

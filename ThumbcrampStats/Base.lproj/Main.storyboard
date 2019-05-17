@@ -796,10 +796,10 @@
                         <outlet property="episodeNumberField" destination="3xT-ss-2ub" id="LEb-Lx-YHZ"/>
                         <outlet property="genreLabel" destination="0jI-a8-aV2" id="cLF-Jc-q1c"/>
                         <outlet property="genrePicker" destination="eDv-mx-FCq" id="AJE-QC-gYF"/>
-                        <outlet property="hornySwitch" destination="CDy-lc-dpg" id="dMm-Ol-6Ai"/>
-                        <outlet property="hungrySwitch" destination="khM-id-BiV" id="cOx-hF-qXl"/>
-                        <outlet property="indieSwitch" destination="ZrO-6X-8dQ" id="BRY-uA-eGH"/>
-                        <outlet property="magicSwitch" destination="V8M-Cw-WQn" id="Fp4-HQ-5mP"/>
+                        <outlet property="hornySwitch" destination="eQn-C3-vgF" id="ETn-vJ-KTy"/>
+                        <outlet property="hungrySwitch" destination="yht-XP-OeF" id="EPY-ro-VI4"/>
+                        <outlet property="indieSwitch" destination="OaR-ph-e1s" id="VpQ-J8-c3x"/>
+                        <outlet property="magicSwitch" destination="gA6-5u-ogK" id="tyR-mF-adu"/>
                         <outlet property="nameField" destination="Qqg-IQ-E7W" id="lNn-wl-bRY"/>
                         <outlet property="reviewNumberField" destination="VkN-rk-aGh" id="c3s-dS-TLn"/>
                         <outlet property="reviewerLabel" destination="Iq8-BR-wQg" id="DhL-Bp-RCA"/>
@@ -883,6 +883,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="T4t-er-W5N"/>
         <segue reference="15R-Iw-zqK"/>
-        <segue reference="Omm-kH-aIt"/>
+        <segue reference="EDT-OH-sQf"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -25,10 +25,10 @@ class ReviewDetailTableViewController: UITableViewController, UIPickerViewDelega
     
     @IBOutlet weak var scoreField: UITextField!
     
-    @IBOutlet weak var indieSwitch: UILabel!
-    @IBOutlet weak var hornySwitch: UILabel!
-    @IBOutlet weak var hungrySwitch: UILabel!
-    @IBOutlet weak var magicSwitch: UILabel!
+    @IBOutlet weak var indieSwitch: UISwitch!
+    @IBOutlet weak var hornySwitch: UISwitch!
+    @IBOutlet weak var hungrySwitch: UISwitch!
+    @IBOutlet weak var magicSwitch: UISwitch!
     
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
@@ -49,6 +49,7 @@ class ReviewDetailTableViewController: UITableViewController, UIPickerViewDelega
         reviewerLabel.textColor = tableView.tintColor
         systemLabel.textColor = tableView.tintColor
         genreLabel.textColor = tableView.tintColor
+        
     }
     
     
@@ -110,7 +111,7 @@ class ReviewDetailTableViewController: UITableViewController, UIPickerViewDelega
     */
 
 }
-
+// MARK: - Picker View
 extension ReviewDetailTableViewController: UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -157,4 +158,54 @@ extension ReviewDetailTableViewController: UIPickerViewDataSource {
         }
     }
     
+}
+
+// MARK: - Helper Procs
+extension ReviewDetailTableViewController {
+    
+    func loadUI(_ review: Review, _ number: Int) {
+        nameField.text = review.name
+        episodeNumberField.text = String(review.episode)
+        reviewNumberField.text = String(review.reviewerNumber)
+        
+        
+        var reviewerIndex = Int()
+        for i in 0...Reviewers.allCases.count-1 {
+            if review.reviewer == Reviewers.allCases[i] {
+                reviewerIndex = i
+            }
+        }
+        reviewerPicker.selectRow(reviewerIndex, inComponent: 0, animated: true)
+        
+        var genreIndex = Int()
+        for i in 0...Genres.allCases.count-1 {
+            if review.genre == Genres.allCases[i] {
+                genreIndex = i
+            }
+        }
+        genrePicker.selectRow(genreIndex, inComponent: 0, animated: true)
+
+        var systemIndex = Int()
+        for i in 0...Systems.allCases.count-1 {
+            if review.system == Systems.allCases[i] {
+                systemIndex = i
+            }
+        }
+        systemPicker.selectRow(systemIndex, inComponent: 0, animated: true)
+        
+        scoreField.text = String(review.score)
+        
+        indieSwitch.isOn = review.indie
+        hornySwitch.isOn = review.horny
+        hungrySwitch.isOn = review.hungry
+        magicSwitch.isOn = review.magic
+        
+    }
+    
+    func formToRevivew() {
+        let name = nameField.text!
+        let episode = Float(episodeNumberField.text!)
+        
+        
+    }
 }
