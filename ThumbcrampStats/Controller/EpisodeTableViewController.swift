@@ -8,6 +8,8 @@ class EpisodeTableViewController: UITableViewController {
     var reviews: [Review] = []
     var reviewers: [Reviewer] = []
     
+    var currentReviewNumber = Int()
+    
     let formatters = Formatters()
     
     override func viewDidLoad() {
@@ -17,6 +19,7 @@ class EpisodeTableViewController: UITableViewController {
         episodes = Episode.Sort(episodes)
         tableView.reloadData()
         reviews = CollectReviews(episodes)
+        currentReviewNumber = reviews.count
         reviewers = CreateReviewers(reviews)
         
         // Load the episodes from JSON here.
@@ -80,6 +83,7 @@ class EpisodeTableViewController: UITableViewController {
         if segue.identifier == "showDetails" {
             let destination = segue.destination as! EpisodeDetailTableViewController
             destination.episode = episodes[tableView.indexPathForSelectedRow!.row]
+            destination.currentReviewNumber = currentReviewNumber
         }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
@@ -121,7 +125,7 @@ extension EpisodeTableViewController {
     
     func LoadEpisodeSample() -> [Episode] {
         var temp: [Episode] = []
-        let review = Review(name: "Test", episode: 1, reviewerNumber: 1, genre: .ActionRPG, system: .gcn, reviewer: .Adam, score: 10, horny: false, indie: true, magic: false, hungry: false)
+        let review = Review(name: "Test", episode: 1, number: 1, reviewerNumber: 1, genre: .ActionRPG, system: .gcn, reviewer: .Adam, score: 10, horny: false, indie: true, magic: false, hungry: false)
         let episode = Episode(number: 1, date: Date(), reviews: [review], scoreModifier: nil)
         temp.append(episode)
         return temp

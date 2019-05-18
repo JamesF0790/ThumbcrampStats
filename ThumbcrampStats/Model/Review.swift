@@ -3,7 +3,7 @@ import Foundation
 struct Review: Codable {
     let name: String
     let episode: Int
-//    let number: Int
+    let number: Int
     let reviewerNumber: Int
     let genre: Genres
     let system: Systems
@@ -19,7 +19,7 @@ extension Review {
     
     enum sortingOptions {
         case episode
-//        case number
+        case number
         case reviewerNumber
     }
     
@@ -28,8 +28,8 @@ extension Review {
         switch option {
         case .episode:
             return reviews.sorted(by: {$0.episode < $1.episode})
-//        case .number:
-//            return reviews.sorted(by: {$0.episode < $1.episode})
+        case .number:
+            return reviews.sorted(by: {$0.episode < $1.episode})
         case .reviewerNumber:
             return reviews.sorted(by: {$0.reviewerNumber < $1.reviewerNumber})
         }

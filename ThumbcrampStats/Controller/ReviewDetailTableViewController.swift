@@ -4,10 +4,19 @@ class ReviewDetailTableViewController: UITableViewController, UIPickerViewDelega
 
     var episodeNumber = Int()
     var review: Review?
+    var currentReviewNumber = Int()
+    
+    var nameSafe = false
     
     var isReviewerPickerShown = false
     var isSystenPickerShown = false
     var isGenrePickerShown = false
+    var isReviewerSet = false
+    var isSystemSet = false
+    var isGenreSet = false
+    
+    var isDeleteButtonShown: Bool = false
+    var isDoneButtonEnabled: Bool = false
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var episodeNumberField: UITextField!
@@ -50,11 +59,29 @@ class ReviewDetailTableViewController: UITableViewController, UIPickerViewDelega
         systemLabel.textColor = tableView.tintColor
         genreLabel.textColor = tableView.tintColor
         
+        if review != nil {
+            isDeleteButtonShown = true
+            isSystemSet = true
+            isGenreSet = true
+            isReviewerSet = true
+            LoadUI(review!)
+        }
+        
     }
     
     
     // MARK: - Actions
     
+    @IBAction func nameChanged(_ sender: UITextField) {
+    }
+    @IBAction func episodeChanged(_ sender: UITextField) {
+    }
+    @IBAction func numberChanged(_ sender: UITextField) {
+    }
+    @IBAction func reviewerNumberChanged(_ sender: UITextField) {
+    }
+    @IBAction func scoreChanged(_ sender: UITextField) {
+    }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -95,6 +122,8 @@ class ReviewDetailTableViewController: UITableViewController, UIPickerViewDelega
             return isSystenPickerShown ? pickerHeight : hiddenHeight
         case [0,9]:
             return isGenrePickerShown ? pickerHeight : hiddenHeight
+        case [0,16]:
+            return isDeleteButtonShown ? normalHeight : hiddenHeight
         default:
             return normalHeight
         }
@@ -149,10 +178,13 @@ extension ReviewDetailTableViewController: UIPickerViewDataSource {
         switch pickerView {
         case reviewerPicker:
             reviewerLabel.text = Reviewers.allCases[row].rawValue
+            isReviewerSet = true
         case systemPicker:
             systemLabel.text = Systems.allCases[row].rawValue
+            isSystemSet = true
         case genrePicker:
             genreLabel.text = Genres.allCases[row].rawValue
+            isGenreSet = true
         default:
             break
         }
@@ -163,49 +195,53 @@ extension ReviewDetailTableViewController: UIPickerViewDataSource {
 // MARK: - Helper Procs
 extension ReviewDetailTableViewController {
     
-    func loadUI(_ review: Review, _ number: Int) {
-        nameField.text = review.name
-        episodeNumberField.text = String(review.episode)
-        reviewNumberField.text = String(review.reviewerNumber)
-        
-        
-        var reviewerIndex = Int()
-        for i in 0...Reviewers.allCases.count-1 {
-            if review.reviewer == Reviewers.allCases[i] {
-                reviewerIndex = i
-            }
-        }
-        reviewerPicker.selectRow(reviewerIndex, inComponent: 0, animated: true)
-        
-        var genreIndex = Int()
-        for i in 0...Genres.allCases.count-1 {
-            if review.genre == Genres.allCases[i] {
-                genreIndex = i
-            }
-        }
-        genrePicker.selectRow(genreIndex, inComponent: 0, animated: true)
-
-        var systemIndex = Int()
-        for i in 0...Systems.allCases.count-1 {
-            if review.system == Systems.allCases[i] {
-                systemIndex = i
-            }
-        }
-        systemPicker.selectRow(systemIndex, inComponent: 0, animated: true)
-        
-        scoreField.text = String(review.score)
-        
-        indieSwitch.isOn = review.indie
-        hornySwitch.isOn = review.horny
-        hungrySwitch.isOn = review.hungry
-        magicSwitch.isOn = review.magic
+    func DoneSafeCheck() -> Bool {
         
     }
     
-    func formToRevivew() {
-        let name = nameField.text!
-        let episode = Float(episodeNumberField.text!)
+    func LoadUI(_ review: Review?) {
+        if let review = review {
+            nameField.text = review.name
+            episodeNumberField.text = String(review.episode)
+            reviewNumberField.text = String(review.number)
+            
+            
+            var reviewerIndex = Int()
+            for i in 0...Reviewers.allCases.count-1 {
+                if review.reviewer == Reviewers.allCases[i] {
+                    reviewerIndex = i
+                }
+            }
+            reviewerPicker.selectRow(reviewerIndex, inComponent: 0, animated: true)
+            reviewerReviewNumber.text = String(review.reviewerNumber)
+            var genreIndex = Int()
+            for i in 0...Genres.allCases.count-1 {
+                if review.genre == Genres.allCases[i] {
+                    genreIndex = i
+                }
+            }
+            genrePicker.selectRow(genreIndex, inComponent: 0, animated: true)
+            
+            var systemIndex = Int()
+            for i in 0...Systems.allCases.count-1 {
+                if review.system == Systems.allCases[i] {
+                    systemIndex = i
+                }
+            }
+            systemPicker.selectRow(systemIndex, inComponent: 0, animated: true)
+            
+            scoreField.text = String(review.score)
+            
+            indieSwitch.isOn = review.indie
+            hornySwitch.isOn = review.horny
+            hungrySwitch.isOn = review.hungry
+            magicSwitch.isOn = review.magic
+        } else {
+            episodeNumberField.text = String(episodeNumber)
+            reviewNumberField.text = String(currentReviewNumber + 1)
+        }
         
         
     }
+    
 }

@@ -3,6 +3,8 @@ import UIKit
 class ReviewTableViewController: UITableViewController {
 
     var episodeNumber = Int()
+    var currentreviewNumber = Int()
+    var reviewNumberOffset = Int()
     var reviews = [Review]()
     
     override func viewDidLoad() {
@@ -35,6 +37,12 @@ class ReviewTableViewController: UITableViewController {
                 reviews[selectedIndexPath.row] = review
                 //Sort reviews here
                 tableView.reloadRows(at: [selectedIndexPath], with: .automatic)
+            } else {
+                let index = IndexPath(row: reviews.count, section: 0)
+                reviews.append(review)
+                reviews = Review.SortBy(reviews, option: .number)
+                tableView.insertRows(at: [index], with: .automatic)
+                reviewNumberOffset += 1
             }
         case "deleteUnwind":
             guard let selectedIndexPath = tableView.indexPathForSelectedRow else {return}
@@ -57,6 +65,7 @@ class ReviewTableViewController: UITableViewController {
             
             vc.review = reviews[row]
             vc.episodeNumber = episodeNumber
+            vc.currentReviewNumber = currentreviewNumber
             
         }
     }

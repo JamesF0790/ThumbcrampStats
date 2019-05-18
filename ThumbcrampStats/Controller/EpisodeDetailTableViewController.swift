@@ -12,6 +12,7 @@ class EpisodeDetailTableViewController: UITableViewController {
     @IBOutlet weak var episodeDatePicker: UIDatePicker!
     
     var episode: Episode?
+    var currentReviewNumber = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,7 @@ class EpisodeDetailTableViewController: UITableViewController {
             }
             vc.reviews = episode!.reviews
             vc.episodeNumber = episode!.number
+            vc.currentreviewNumber = currentReviewNumber
             
         }
         
