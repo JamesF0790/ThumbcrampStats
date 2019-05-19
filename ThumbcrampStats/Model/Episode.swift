@@ -1,10 +1,10 @@
 import Foundation
 
 struct Episode: Codable {
-    let number: Int // This can be gotten by the count or adding 1 to the index
-    let date: Date
-    let reviews: [Review]
-    let scoreModifier: Float?
+    var number: Int // This can be gotten by the count or adding 1 to the index
+    var date: Date
+    var reviews: [Review]
+    var scoreModifier: Float?
     var baseScore: Float {
         get {
             var score: Float = 0

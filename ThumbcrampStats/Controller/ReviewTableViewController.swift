@@ -5,6 +5,7 @@ class ReviewTableViewController: UITableViewController {
     var episodeNumber = Int()
     var currentreviewNumber = Int()
     var reviewNumberOffset = Int()
+    var reviewerCount: [Reviewers:Int] = [:]
     var reviews = [Review]()
     
     override func viewDidLoad() {
@@ -52,6 +53,9 @@ class ReviewTableViewController: UITableViewController {
         default:
             return
         }
+        tableView.reloadData()
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -66,6 +70,7 @@ class ReviewTableViewController: UITableViewController {
             vc.review = reviews[row]
             vc.episodeNumber = episodeNumber
             vc.currentReviewNumber = currentreviewNumber
+            vc.reviewerCount = reviewerCount
             
         }
     }

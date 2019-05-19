@@ -13,6 +13,7 @@ class EpisodeDetailTableViewController: UITableViewController {
     
     var episode: Episode?
     var currentReviewNumber = Int()
+    var reviewerCount: [Reviewers:Int] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,11 @@ class EpisodeDetailTableViewController: UITableViewController {
 
     // MARK: - Navigation
 
+    @IBAction func unwindToEpisodeForm(segue: UIStoryboardSegue) {
+        let vc = segue.source as! ReviewTableViewController
+        if episode == nil { print ("oops") }
+        episode!.reviews = vc.reviews
+    }
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
@@ -40,6 +46,7 @@ class EpisodeDetailTableViewController: UITableViewController {
             vc.reviews = episode!.reviews
             vc.episodeNumber = episode!.number
             vc.currentreviewNumber = currentReviewNumber
+            vc.reviewerCount = reviewerCount
             
         }
         

@@ -9,18 +9,25 @@ class EpisodeTableViewController: UITableViewController {
     var reviewers: [Reviewer] = []
     
     var currentReviewNumber = Int()
+    var reviewerCount: [Reviewers:Int] = [:]
     
     let formatters = Formatters()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        episodes = LoadEpisodeSample()
+        if Episode.Load() != nil {
+            episodes = Episode.Load()!
+        } else {
+            episodes = LoadEpisodeSample()
+        }
         episodes = Episode.Sort(episodes)
         tableView.reloadData()
         reviews = CollectReviews(episodes)
         currentReviewNumber = reviews.count
         reviewers = CreateReviewers(reviews)
+        for x in reviewers {
+            reviewerCount[x.name] = x.reviews.count
+        }
         
         // Load the episodes from JSON here.
 
@@ -48,7 +55,9 @@ class EpisodeTableViewController: UITableViewController {
             episodes = Episode.Sort(episodes)
             tableView.deleteRows(at: [selectedIndexPath], with: .automatic)
         }
-        //tableView.reloadData()
+        tableView.beginUpdates()
+        tableView.endUpdates()
+//        tableView.reloadData()
         Episode.Save(episodes)
 
     }
@@ -84,6 +93,7 @@ class EpisodeTableViewController: UITableViewController {
             let destination = segue.destination as! EpisodeDetailTableViewController
             destination.episode = episodes[tableView.indexPathForSelectedRow!.row]
             destination.currentReviewNumber = currentReviewNumber
+            destination.reviewerCount = reviewerCount
         }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.

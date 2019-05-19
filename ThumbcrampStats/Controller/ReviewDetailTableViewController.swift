@@ -5,6 +5,7 @@ class ReviewDetailTableViewController: UITableViewController, UIPickerViewDelega
     var episodeNumber = Int()
     var review: Review?
     var currentReviewNumber = Int()
+    var reviewerCount: [Reviewers:Int] = [:]
     
     var nameSafe = false
     
@@ -73,14 +74,20 @@ class ReviewDetailTableViewController: UITableViewController, UIPickerViewDelega
     // MARK: - Actions
     
     @IBAction func nameChanged(_ sender: UITextField) {
+        DoneSafeCheck()
+        doneButton.isEnabled = isDoneButtonEnabled
     }
     @IBAction func episodeChanged(_ sender: UITextField) {
     }
     @IBAction func numberChanged(_ sender: UITextField) {
     }
     @IBAction func reviewerNumberChanged(_ sender: UITextField) {
+        DoneSafeCheck()
+        doneButton.isEnabled = isDoneButtonEnabled
     }
     @IBAction func scoreChanged(_ sender: UITextField) {
+        DoneSafeCheck()
+        doneButton.isEnabled = isDoneButtonEnabled
     }
     
     
@@ -177,8 +184,12 @@ extension ReviewDetailTableViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch pickerView {
         case reviewerPicker:
-            reviewerLabel.text = Reviewers.allCases[row].rawValue
+            let reviewer = Reviewers.allCases[row]
+            reviewerLabel.text = reviewer.rawValue
             isReviewerSet = true
+            guard let count = reviewerCount[reviewer] else {return}
+            reviewerReviewNumber.text = String(count + 1)
+
         case systemPicker:
             systemLabel.text = Systems.allCases[row].rawValue
             isSystemSet = true
@@ -195,8 +206,16 @@ extension ReviewDetailTableViewController: UIPickerViewDataSource {
 // MARK: - Helper Procs
 extension ReviewDetailTableViewController {
     
-    func DoneSafeCheck() -> Bool {
+    func DoneSafeCheck() {
+        let nameSafe = !nameField.text!.isEmpty
+        let reviewerNumberSafe = !reviewerReviewNumber.text!.isEmpty
+        let scoreSafe = !scoreField.text!.isEmpty
         
+        if nameSafe && reviewerNumberSafe && scoreSafe {
+            isDoneButtonEnabled = true
+        } else {
+            isDoneButtonEnabled = false
+        }
     }
     
     func LoadUI(_ review: Review?) {
@@ -240,8 +259,23 @@ extension ReviewDetailTableViewController {
             episodeNumberField.text = String(episodeNumber)
             reviewNumberField.text = String(currentReviewNumber + 1)
         }
-        
-        
     }
     
+    func FormToReview() {
+        let name: String = nameField.text!
+        let episodeNumber = Int(episodeNumberField.text!)!
+        let reviewNumber = Int(reviewNumberField.text!)!
+        let reviewer = Reviewers.allCases[reviewerPicker.selectedRow(inComponent: 0)]
+        let reviewerNumber = Int(reviewerReviewNumber.text!)!
+        let genre = Genres.allCases[genrePicker.selectedRow(inComponent: 0)]
+        let system = Systems.allCases[systemPicker.selectedRow(inComponent: 0)]
+        let score = Float(scoreField.text!)!
+        let indie = indieSwitch.isOn
+        let horny = hornySwitch.isOn
+        let hungry = hungrySwitch.isOn
+        let magic = magicSwitch.isOn
+        
+        review = Review(name: name, episode: episodeNumber, number: reviewNumber, reviewerNumber: reviewerNumber, genre: genre, system: system, reviewer: reviewer, score: score, horny: horny, indie: indie, magic: magic, hungry: hungry)
+        
+    }
 }
