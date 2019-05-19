@@ -33,6 +33,9 @@ class EpisodeDetailTableViewController: UITableViewController {
         let vc = segue.source as! ReviewTableViewController
         if episode == nil { print ("oops") }
         episode!.reviews = vc.reviews
+        print (episode!.reviews)
+        print ("done")
+        
     }
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

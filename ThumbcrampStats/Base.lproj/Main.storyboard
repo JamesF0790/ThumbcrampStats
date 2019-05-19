@@ -382,7 +382,7 @@
                     <navigationItem key="navigationItem" title="Reviews" id="qHE-0M-tTY">
                         <barButtonItem key="leftBarButtonItem" title="&lt; Episode" id="itw-RH-6Oi">
                             <connections>
-                                <segue destination="q1z-DI-rF8" kind="unwind" unwindAction="unwindToEpisodeFormWithSegue:" id="sSV-iL-NAd"/>
+                                <segue destination="q1z-DI-rF8" kind="unwind" identifier="returnReviews" unwindAction="unwindToEpisodeFormWithSegue:" id="6ds-eg-SCA"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zrr-IT-QRE">
