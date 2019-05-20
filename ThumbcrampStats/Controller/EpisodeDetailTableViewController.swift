@@ -33,8 +33,7 @@ class EpisodeDetailTableViewController: UITableViewController {
         let vc = segue.source as! ReviewTableViewController
         if episode == nil { print ("oops") }
         episode!.reviews = vc.reviews
-        print (episode!.reviews)
-        print ("done")
+
         
     }
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -43,9 +42,9 @@ class EpisodeDetailTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "Reviews" {
             let vc = segue.destination as! ReviewTableViewController
-            if episode == nil {
-                FormToEpisode()
-            }
+            
+            FormToEpisode()
+
             vc.reviews = episode!.reviews
             vc.episodeNumber = episode!.number
             vc.currentreviewNumber = currentReviewNumber
@@ -76,7 +75,16 @@ extension EpisodeDetailTableViewController {
             number = Int(episodeNumberField.text!) ?? 0
         }
         let date = episodeDatePicker.date
-        let reviews = episode?.reviews ?? [Review]()
+        
+        var reviews: [Review] {
+            if let reviews = episode?.reviews {
+                return reviews
+            } else {
+                let empty = [Review]()
+                return empty
+            }
+        }
+//        let reviews = episode?.reviews ?? [Review]()
         var mod: Float?
         if episode?.scoreModifier != nil {
             mod = episode!.scoreModifier!

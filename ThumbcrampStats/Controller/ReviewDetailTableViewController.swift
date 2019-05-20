@@ -3,7 +3,7 @@ import UIKit
 class ReviewDetailTableViewController: UITableViewController, UIPickerViewDelegate {
 
     var episodeNumber = Int()
-    var review: Review?
+    var review : Review?
     var currentReviewNumber = Int()
     var reviewerCount: [Reviewers:Int] = [:]
     

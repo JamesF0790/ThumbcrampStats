@@ -10,6 +10,7 @@ class ReviewTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print (String(reviews.count))
     }
 
     // MARK: - Table view data source
