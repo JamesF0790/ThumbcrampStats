@@ -175,7 +175,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="dqC-hP-vpw" kind="show" id="15R-Iw-zqK"/>
+                                            <segue destination="dqC-hP-vpw" kind="show" identifier="showReviews" id="15R-Iw-zqK"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="lll-2J-8Wp">

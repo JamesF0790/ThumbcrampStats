@@ -40,12 +40,15 @@ class EpisodeDetailTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "Reviews" {
+        if segue.identifier == "showReviews" {
             let vc = segue.destination as! ReviewTableViewController
             
             FormToEpisode()
 
+            print ("\(vc.reviews)")
+            print (episode!.reviews)
             vc.reviews = episode!.reviews
+            print (vc.reviews)
             vc.episodeNumber = episode!.number
             vc.currentreviewNumber = currentReviewNumber
             vc.reviewerCount = reviewerCount

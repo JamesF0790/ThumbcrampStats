@@ -38,11 +38,13 @@ class EpisodeTableViewController: UITableViewController {
     @IBAction func unwindToEpisodeList(segue: UIStoryboardSegue) {
         let sourceVC = segue.source as! EpisodeDetailTableViewController
         if segue.identifier == "saveUnwind" {
+            sourceVC.FormToEpisode()
+//            print (sourceVC.episode)
             guard let episode = sourceVC.episode else {return}
-            if let selecedIndexPath = tableView.indexPathForSelectedRow {
-                episodes[selecedIndexPath.row] = episode
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                episodes[selectedIndexPath.row] = episode
                 episodes = Episode.Sort(episodes)
-                tableView.reloadRows(at: [selecedIndexPath], with: .automatic)
+                tableView.reloadRows(at: [selectedIndexPath], with: .automatic)
             } else {
                 let index = IndexPath(row: episodes.count, section: 0)
                 episodes.append(episode)
