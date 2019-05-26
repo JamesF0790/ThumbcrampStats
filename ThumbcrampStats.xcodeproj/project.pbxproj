@@ -20,6 +20,7 @@
 		2B22E3EF2277915D00EE654E /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22E3EE2277915D00EE654E /* Episode.swift */; };
 		2B5AE0FC2284A9C100D657CE /* ReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AE0FB2284A9C100D657CE /* ReviewTableViewController.swift */; };
 		2B5AE0FE2284A9CD00D657CE /* ReviewDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5AE0FD2284A9CD00D657CE /* ReviewDetailTableViewController.swift */; };
+		2BAEDF65229B1A97009091AF /* ExportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAEDF64229B1A97009091AF /* ExportTableViewController.swift */; };
 		2BBB357E227FC072003EB559 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBB357D227FC072003EB559 /* Formatters.swift */; };
 		2BBB3580227FC548003EB559 /* EpisodeDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBB357F227FC548003EB559 /* EpisodeDetailTableViewController.swift */; };
 		2BFD61D8227824C800728EC7 /* HelperProcs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFD61D7227824C800728EC7 /* HelperProcs.swift */; };
@@ -41,6 +42,7 @@
 		2B22E3EE2277915D00EE654E /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		2B5AE0FB2284A9C100D657CE /* ReviewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewController.swift; sourceTree = "<group>"; };
 		2B5AE0FD2284A9CD00D657CE /* ReviewDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailTableViewController.swift; sourceTree = "<group>"; };
+		2BAEDF64229B1A97009091AF /* ExportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportTableViewController.swift; sourceTree = "<group>"; };
 		2BBB357D227FC072003EB559 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		2BBB357F227FC548003EB559 /* EpisodeDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailTableViewController.swift; sourceTree = "<group>"; };
 		2BFD61D7227824C800728EC7 /* HelperProcs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperProcs.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				2BBB357F227FC548003EB559 /* EpisodeDetailTableViewController.swift */,
 				2B5AE0FB2284A9C100D657CE /* ReviewTableViewController.swift */,
 				2B5AE0FD2284A9CD00D657CE /* ReviewDetailTableViewController.swift */,
+				2BAEDF64229B1A97009091AF /* ExportTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				2B22E3E522778B4C00EE654E /* Systems.swift in Sources */,
 				2BBB357E227FC072003EB559 /* Formatters.swift in Sources */,
 				2B22E3D322778B1500EE654E /* AppDelegate.swift in Sources */,
+				2BAEDF65229B1A97009091AF /* ExportTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

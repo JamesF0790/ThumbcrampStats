@@ -45,10 +45,7 @@ class EpisodeDetailTableViewController: UITableViewController {
             
             FormToEpisode()
 
-            print ("\(vc.reviews)")
-            print (episode!.reviews)
             vc.reviews = episode!.reviews
-            print (vc.reviews)
             vc.episodeNumber = episode!.number
             vc.currentreviewNumber = currentReviewNumber
             vc.reviewerCount = reviewerCount
@@ -69,6 +66,8 @@ extension EpisodeDetailTableViewController {
             episodeScoreModifierField.text = String(episode!.scoreModifier!)
         }
         episodeFinalScoreLabel.text = "\(episode!.score)/\(episode!.reviews.count * 5)"
+        episodeDatePicker.date = episode!.date
+        episodeDateLabel.text = Formatters.dateFormatter.string(from: episode!.date)
     }
     func FormToEpisode() {
         var number = Int()

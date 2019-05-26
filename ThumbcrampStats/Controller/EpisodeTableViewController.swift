@@ -97,6 +97,15 @@ class EpisodeTableViewController: UITableViewController {
             destination.currentReviewNumber = currentReviewNumber
             destination.reviewerCount = reviewerCount
         }
+        else if segue.identifier == "showExport" {
+            let destination = segue.destination as! ExportTableViewController
+            destination.episodes = episodes
+            reviews = CollectReviews(episodes)
+            destination.reviews = reviews
+            reviewers = CreateReviewers(reviews)
+            destination.reviewers = reviewers
+            
+        }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
