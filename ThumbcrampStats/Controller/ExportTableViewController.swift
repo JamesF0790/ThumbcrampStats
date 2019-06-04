@@ -20,7 +20,7 @@ class ExportTableViewController: UITableViewController {
 
     }
     @IBAction func systemButtonTapped(_ sender: Any) {
-        SystemBreakup()
+        //SystemBreakup()
     }
     @IBAction func jsonButtonTapped(_ sender: Any) {
         JSONExport()
@@ -30,6 +30,7 @@ class ExportTableViewController: UITableViewController {
 
 // MARK: - CSV Funcs
 extension ExportTableViewController {
+    
     
     func SystemBreakup() {
         let fileName = "systems.csv"
@@ -69,20 +70,18 @@ extension ExportTableViewController {
     }
     
     func JSONExport() {
-        guard let reviewsJSON = try? JSONEncoder().encode(reviews) else {return}
-        guard let reviewersJSON = try? JSONEncoder().encode(reviewers) else {return}
+
         guard let episodesJSON = try? JSONEncoder().encode(episodes) else {return}
-        do {
-            
-            let vc = UIActivityViewController(activityItems: [path!], applicationActivities: [])
-            present(vc, animated:true, completion:nil)
-        }
-        catch {
-            print ("Something went wrong")
-            print ("\(error)")
-        }
+        
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let episodesArchive = documentsDirectory.appendingPathComponent("episodes").appendingPathExtension("json")
         
 
+        try? episodesJSON.write(to: episodesArchive, options: .noFileProtection)
+        
+
+        let vc = UIActivityViewController(activityItems: [episodes!], applicationActivities: [])
+        present(vc, animated:  true, completion: nil)
     }
         
 }

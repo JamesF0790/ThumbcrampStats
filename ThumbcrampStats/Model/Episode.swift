@@ -28,12 +28,15 @@ struct Episode: Codable {
 extension Episode {
     
     static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let archive = documentsDirectory.appendingPathComponent("episodes").appendingPathComponent("plist")
+    static let archive = documentsDirectory.appendingPathComponent("episodes").appendingPathExtension("plist")
     
     static func Save(_ episodes: [Episode]) {
+        
         let encoder = PropertyListEncoder()
         let codedEpisodes = try? encoder.encode(episodes)
-        try? codedEpisodes?.write(to: archive, options: .noFileProtection)
+            try? codedEpisodes?.write(to: archive, options: .noFileProtection)
+
+        
     }
     
     static func Load() -> [Episode]? {
