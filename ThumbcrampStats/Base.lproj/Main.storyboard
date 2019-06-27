@@ -31,9 +31,6 @@
                                                     <rect key="frame" x="178" y="6" width="59" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Systems"/>
-                                                    <connections>
-                                                        <action selector="systemButtonTapped:" destination="nuK-NG-MsA" eventType="touchUpInside" id="pLs-Ej-WN4"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>

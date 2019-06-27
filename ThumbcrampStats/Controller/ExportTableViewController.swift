@@ -32,46 +32,47 @@ class ExportTableViewController: UITableViewController {
 extension ExportTableViewController {
     
     
-    func SystemBreakup() {
-        let fileName = "systems.csv"
-        let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
-        var csvText = "Reviewer, Systems/n"
-        
-        var systemlist = ",,"
-        for x in Systems.allCases {
-            systemlist += "\(x.rawValue),"
-        }
-        systemlist += "/n"
-        csvText += systemlist
-        
-        for x in reviewers! {
-            var tempText = "\(x.name),,"
-            for y in Systems.allCases {
-                for (system,count) in x.systems {
-                    if system == y {
-                        tempText += "\(count),"
-                    }
-                }
-            }
-            tempText += "/n"
-            csvText += tempText
-        }
-        
-        do {
-            try csvText.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
-            
-            let vc = UIActivityViewController(activityItems: [path!], applicationActivities: [])
-            present(vc, animated:true, completion: nil)
-        } catch {
-            print ("Failed to create csv")
-            print ("\(error)")
-        }
-        
-    }
+//    func SystemBreakup() {
+//        let fileName = "systems.csv"
+//        let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
+//        var csvText = "Reviewer, Systems/n"
+//
+//        var systemlist = ",,"
+//        for x in Systems.allCases {
+//            systemlist += "\(x.rawValue),"
+//        }
+//        systemlist += "/n"
+//        csvText += systemlist
+//
+//        for x in reviewers! {
+//            var tempText = "\(x.name),,"
+//            for y in Systems.allCases {
+//                for (system,count) in x.systems {
+//                    if system == y {
+//                        tempText += "\(count),"
+//                    }
+//                }
+//            }
+//            tempText += "/n"
+//            csvText += tempText
+//        }
+//
+//        do {
+//            try csvText.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
+//
+//            let vc = UIActivityViewController(activityItems: [path!], applicationActivities: [])
+//            present(vc, animated:true, completion: nil)
+//        } catch {
+//            print ("Failed to create csv")
+//            print ("\(error)")
+//        }
+//
+//    }
     
     func JSONExport() {
 
-        guard let episodesJSON = try? JSONEncoder().encode(episodes) else {return}
+        let encoder = JSONEncoder()
+        guard let episodesJSON = try? encoder.encode(episodes) else {return}
         
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let episodesArchive = documentsDirectory.appendingPathComponent("episodes").appendingPathExtension("json")
@@ -80,8 +81,13 @@ extension ExportTableViewController {
         try? episodesJSON.write(to: episodesArchive, options: .noFileProtection)
         
 
-        let vc = UIActivityViewController(activityItems: [episodes!], applicationActivities: [])
+        let vc = UIActivityViewController(activityItems: [episodesArchive], applicationActivities: [])
         present(vc, animated:  true, completion: nil)
+    }
+    
+    func SystemExpert() {
+        var systemCount: [String:Int] = [:]
+    
     }
         
 }

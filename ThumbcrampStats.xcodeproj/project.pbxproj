@@ -13,7 +13,6 @@
 		2B22E3DA22778B1600EE654E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B22E3D922778B1600EE654E /* Assets.xcassets */; };
 		2B22E3DD22778B1600EE654E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B22E3DB22778B1600EE654E /* LaunchScreen.storyboard */; };
 		2B22E3E522778B4C00EE654E /* Systems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22E3E422778B4C00EE654E /* Systems.swift */; };
-		2B22E3E722778B9800EE654E /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22E3E622778B9800EE654E /* System.swift */; };
 		2B22E3E922778C5500EE654E /* Reviewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22E3E822778C5500EE654E /* Reviewer.swift */; };
 		2B22E3EB22778D6500EE654E /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22E3EA22778D6400EE654E /* Genres.swift */; };
 		2B22E3ED22778E0000EE654E /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22E3EC22778E0000EE654E /* Review.swift */; };
@@ -35,7 +34,6 @@
 		2B22E3DC22778B1600EE654E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B22E3DE22778B1600EE654E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B22E3E422778B4C00EE654E /* Systems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Systems.swift; sourceTree = "<group>"; };
-		2B22E3E622778B9800EE654E /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		2B22E3E822778C5500EE654E /* Reviewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviewer.swift; sourceTree = "<group>"; };
 		2B22E3EA22778D6400EE654E /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
 		2B22E3EC22778E0000EE654E /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
@@ -75,7 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				2B22E3E422778B4C00EE654E /* Systems.swift */,
-				2B22E3E622778B9800EE654E /* System.swift */,
 				2B22E3E822778C5500EE654E /* Reviewer.swift */,
 				2B22E3EE2277915D00EE654E /* Episode.swift */,
 				2B22E3EA22778D6400EE654E /* Genres.swift */,
@@ -195,7 +192,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B22E3E722778B9800EE654E /* System.swift in Sources */,
 				2B22E3EF2277915D00EE654E /* Episode.swift in Sources */,
 				2BBB3580227FC548003EB559 /* EpisodeDetailTableViewController.swift in Sources */,
 				2B0917F4227EF67900CDC4F6 /* EpisodeTableViewController.swift in Sources */,
